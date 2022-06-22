@@ -60,6 +60,7 @@ RUN wget -q https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh 
     && $CONDA_HOME/bin/conda update --all -y \
     && $CONDA_HOME/bin/pip install --upgrade pip
 
+COPY ./home/airflow /home/airflow
 # setup volumes
 RUN mkdir /root/ipynb
 VOLUME [ "/root/ipynb","/home/airflow" ]
