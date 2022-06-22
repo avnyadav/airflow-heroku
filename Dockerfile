@@ -59,13 +59,19 @@ RUN wget -q https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh 
     && $CONDA_HOME/bin/conda update -n root conda -y \
     && $CONDA_HOME/bin/conda update --all -y \
     && $CONDA_HOME/bin/pip install --upgrade pip
-
+RUN mkdir -p /home/airflow/dags 
+COPY ./dags /home/airflow/dags 
+RUN mkdir -p /home/airflow/library/
+RUN mkdir -p config
+COPY ./config /config
+COPY ./dist  /home/airflow/library/
 COPY ./home/airflow /home/airflow
 # setup volumes
 RUN mkdir /root/ipynb
 VOLUME [ "/root/ipynb","/home/airflow" ]
 WORKDIR /
 RUN pip install --upgrade pip
+RUN pip install /home/airflow/library/Housing_price_prediction-0.0.0-py3-none-any.whl
 RUN python -m pip install  virtualenv
 COPY ./requirements.txt .
 RUN pip install -r requirements.txt

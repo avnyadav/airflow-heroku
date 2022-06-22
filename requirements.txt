@@ -1,6 +1,11 @@
 numpy
-sklearn
 pandas
 apache-airflow==2.2.5
 apache-airflow[cncf.kubernetes]
 wget
+scikit-learn
+scipy 
+PyYAML
+-e .
+six
+dill
