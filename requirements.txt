@@ -6,6 +6,5 @@ wget
 scikit-learn
 scipy 
 PyYAML
--e .
 six
 dill
