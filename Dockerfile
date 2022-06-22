@@ -76,5 +76,6 @@ RUN python -m pip install  virtualenv
 COPY ./requirements.txt .
 RUN pip install -r requirements.txt
 COPY ./airflow-start.sh .
+COPY ./schema.yaml .
 RUN chmod 777 ./airflow-start.sh
 CMD ["./airflow-start.sh"]
