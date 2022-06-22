@@ -62,10 +62,8 @@ RUN wget -q https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh 
 
 # setup volumes
 RUN mkdir /root/ipynb
-VOLUME [ "/root/ipynb" ]
-
-
-
+VOLUME [ "/root/ipynb","/home/airflow" ]
+WORKDIR /
 RUN pip install --upgrade pip
 RUN python -m pip install  virtualenv
 COPY ./requirements.txt .

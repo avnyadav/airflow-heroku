@@ -1,3 +1,6 @@
 numpy
 sklearn
 pandas
+apache-airflow==2.2.5
+apache-airflow[cncf.kubernetes]
+wget
