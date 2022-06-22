@@ -82,7 +82,7 @@ with DAG(
         data_validation_artifact=DataValidationArtifact(*(data_validation_artifact))
 
         model_trainer_artifact = ti.xcom_pull(task_ids="model_trainer",key="model_trainer_artifact")
-        model_trainer_artifact=ModelTrainerArtifact(*(data_validation_artifact))
+        model_trainer_artifact=ModelTrainerArtifact(*(model_trainer_artifact))
 
         model_evaluation_artifact = training_pipeline.start_model_evaluation(data_ingestion_artifact=data_ingestion_artifact,
                                                                     data_validation_artifact=data_validation_artifact,
